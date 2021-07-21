@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:1.271, fx:0.5, fy:0.5, stop:0 rgba(210, 255, 197, 255), stop:1 rgba(255, 255, 255, 255));</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -39,7 +42,11 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="inUsuario"/>
+        <widget class="QLineEdit" name="inUsuario">
+         <property name="styleSheet">
+          <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
@@ -49,7 +56,11 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="inContrasena"/>
+        <widget class="QLineEdit" name="inContrasena">
+         <property name="styleSheet">
+          <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -72,6 +83,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="cmdAcceder">
+         <property name="styleSheet">
+          <string notr="true">background-color: qradialgradient(spread:reflect, cx:0.239, cy:0.528273, radius:1.271, fx:0.233, fy:0.522727, stop:0 rgba(236, 61, 52, 241), stop:1 rgba(255, 255, 255, 255));</string>
+         </property>
          <property name="text">
           <string>Acceder</string>
          </property>
@@ -79,6 +93,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="cmdCancelar">
+         <property name="styleSheet">
+          <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(236, 225, 94, 255), stop:1 rgba(255, 255, 255, 255));</string>
+         </property>
          <property name="text">
           <string>Cancelar</string>
          </property>
@@ -108,7 +125,7 @@
      <x>0</x>
      <y>0</y>
      <width>457</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

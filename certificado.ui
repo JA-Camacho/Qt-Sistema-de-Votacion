@@ -9,12 +9,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>451</width>
-    <height>242</height>
+    <width>465</width>
+    <height>237</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>465</width>
+    <height>237</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>465</width>
+    <height>237</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.477227, cy:0.392, radius:1.271, fx:0.477227, fy:0.387, stop:0 rgba(104, 206, 245, 248), stop:1 rgba(255, 255, 255, 255));
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:1.271, fx:0.5, fy:0.5, stop:0 rgba(210, 255, 197, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
   <widget class="QPushButton" name="cmdSave">
    <property name="geometry">
@@ -24,6 +40,9 @@
      <width>80</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:reflect, cx:0.239, cy:0.528273, radius:1.271, fx:0.233, fy:0.522727, stop:0 rgba(236, 61, 52, 241), stop:1 rgba(255, 255, 255, 255));</string>
    </property>
    <property name="text">
     <string>Guardar</string>
@@ -38,6 +57,9 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+   </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Certificado de Votación&lt;br/&gt;Elecciones 2021&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
@@ -50,6 +72,9 @@
      <width>161</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nombre:&lt;br/&gt;Cedula:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -64,6 +89,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+   </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fecha&lt;br/&gt;Hora&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
@@ -76,6 +104,9 @@
      <width>381</width>
      <height>151</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
    </property>
   </widget>
   <widget class="QGraphicsView" name="graphicsView">

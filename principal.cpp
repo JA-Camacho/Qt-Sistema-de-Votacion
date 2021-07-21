@@ -12,8 +12,6 @@ Principal::~Principal()
 {
     delete ui;
 }
-
-
 void Principal::on_cmdIngresar_clicked()
 {
     //Obtener el nombre

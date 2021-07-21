@@ -3,6 +3,9 @@
         <file>Recursos/arauz.jpeg</file>
         <file>Recursos/Fotostock.jpg</file>
         <file>Recursos/lasso.jpeg</file>
+        <file>Recursos/ecuador.png</file>
+        <file>Recursos/tarjeta-de-identificacion.png</file>
+        <file>Recursos/estadisticas.png</file>
     </qresource>
     <qresource prefix="/usuarios">
         <file>Recursos/usuarios.csv</file>

@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Principal</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Recursos.qrc">
+    <normaloff>:/imagenes/Recursos/ecuador.png</normaloff>:/imagenes/Recursos/ecuador.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(204, 240, 250, 255), stop:1 rgba(167, 210, 255, 255));</string>
   </property>
@@ -98,7 +102,7 @@
           <item row="1" column="1">
            <widget class="QLabel" name="outAdvertencia">
             <property name="styleSheet">
-             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(204, 240, 250, 255), stop:1 rgba(167, 210, 255, 255));</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -194,6 +198,9 @@
     </rect>
    </property>
    <widget class="QMenu" name="menuUsuario">
+    <property name="styleSheet">
+     <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:1.271, fx:0.5, fy:0.5, stop:0 rgba(210, 255, 197, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="title">
      <string>Administrador</string>
     </property>
@@ -203,11 +210,17 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionResultados">
+   <property name="icon">
+    <iconset resource="Recursos.qrc">
+     <normaloff>:/imagenes/Recursos/estadisticas.png</normaloff>:/imagenes/Recursos/estadisticas.png</iconset>
+   </property>
    <property name="text">
     <string>Datos</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>
