@@ -5,7 +5,7 @@
 #include <QObject>
 #define FECHA "20-07-2021"
 #define HORAINICIAL "11:00"
-#define HORAFINAL "23:00"
+#define HORAFINAL "23:59"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

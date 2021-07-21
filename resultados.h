@@ -2,7 +2,7 @@
 #define RESULTADOS_H
 
 #include <QDialog>
-
+#include <QPainter>
 namespace Ui {
 class Resultados;
 }
@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::Resultados *ui;
+    QPixmap lienzo;
+    void dibujar();
 };
 
 #endif // RESULTADOS_H
