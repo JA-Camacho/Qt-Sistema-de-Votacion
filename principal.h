@@ -23,8 +23,8 @@ public:
     ~Principal();
 
 private slots:
-    void on_cmdIngresar_clicked();
 
+    void on_cmdIngresar_clicked();
     void on_actionResultados_triggered();
 
 private:

@@ -28,4 +28,5 @@ void Votacion::on_cmdVotar_released()
         m_voto = 2; //Voto por lasso
     else if(ui->inArauz->isChecked() && ui->inLasso->isChecked())
         m_voto = 3; //Voto nulo
+    this->close();
 }

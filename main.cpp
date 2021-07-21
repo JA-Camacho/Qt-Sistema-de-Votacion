@@ -3,8 +3,9 @@
 #include <QDate>
 #include <QMessageBox>
 #include <QObject>
-#define FECHA "20-07-2021"
-#define HORAINICIAL "11:00"
+#include <QDebug>
+#define FECHA "21-07-2021"
+#define HORAINICIAL "00:00"
 #define HORAFINAL "23:59"
 int main(int argc, char *argv[])
 {

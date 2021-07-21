@@ -46,6 +46,11 @@ void Resultados::dibujar()
     //Dibujar la primera barra
     painter.drawRect(x, y+(400-alto_1), ancho, alto_1);
 
+    painter.setFont(QFont("Arial", 10));
+
+    painter.setPen(Qt::black);
+    painter.drawText(x, (400 - alto_1), "Arauz");
+
     //Crear un nuevo color
     QColor colorBorde2(78,3,48);
     QColor colorRelleno2(190,120,162);
@@ -62,6 +67,9 @@ void Resultados::dibujar()
     //Dibujar la segunda barra
     painter.drawRect(x+150, y+(400-alto_2), ancho, alto_2);
 
+    painter.setPen(Qt::black);
+    painter.drawText(x + 150, (400 - alto_2), "Lasso");
+
     //Creando los colores de la tercera barra
     QColor colorRelleno3(253,253,115);
     QColor colorBorde3(174,174,51);
@@ -74,14 +82,19 @@ void Resultados::dibujar()
     //Dibujar la tercera barra
     painter.drawRect(x+300, y+(400-alto_3), ancho, alto_3);
 
+    painter.setPen(Qt::black);
+    painter.drawText(x + 300, (400-alto_3), "Nulo");
+
     //Dibujar cuarta barra
     QColor colorRelleno4(110,250,125);
     QColor colorBorde4(100,100,100);
     pincel.setColor(colorBorde4);
     painter.setPen(pincel);
     painter.setBrush(colorRelleno4);
-
     painter.drawRect(x+450, y+(400-alto_4), ancho, alto_4);
+
+    painter.setPen(Qt::black);
+    painter.drawText(x+450, (400-alto_4), "Blanco");
 
     //Mostrar el lienzo en el cuadro
     ui->outResultados->setPixmap(lienzo);

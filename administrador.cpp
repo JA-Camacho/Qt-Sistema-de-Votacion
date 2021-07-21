@@ -29,9 +29,6 @@ void Administrador::on_cmdAcceder_clicked()
             resultados->exec();
             break;
         }
-        else
-        {
-            qDebug() << "No es un usuario";
-        }
     }
+    QMessageBox::warning(this, "Administrador", "Usuario y/o Contraseña Incorrecta", "Chido");
 }

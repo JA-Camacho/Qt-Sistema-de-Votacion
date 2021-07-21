@@ -32,19 +32,20 @@ void Principal::on_cmdIngresar_clicked()
     {
         if(cedulas.at(i) == cedula)
         {
-            this->hide();
+
             Votacion *votacion = new Votacion(this);
-            Certificado *certificado = new Certificado(this);
             Votante *votante = new Votante("Jose", cedulas.at(i));
+            qDebug() << votante->nombre() << votante->cedula();
             votacion->exec();
             llenarPila(votacion->voto());
-            certificado->setVotante(votante);
+            Certificado *certificado = new Certificado(this, votante->nombre(), votante->cedula());
             certificado->exec();
+
             qDebug()<< "Arauz: " <<arauz.size();
             qDebug()<< "Lasoo: " <<lasso.size();
             qDebug()<< "Nulo: " <<nulo.size();
             qDebug()<< "Blanco: " <<blanco.size();
-            this->show();
+
         }
         else
         {
@@ -63,15 +64,15 @@ void Principal::llenarPila(int numero)
     case 0:
         nulo.append(1);
         break;
-    //Votos para arauz
+        //Votos para arauz
     case 1:
         arauz.append(1);
         break;
-    //Votos para lasso
+        //Votos para lasso
     case 2:
         lasso.append(1);
         break;
-    //Votos blancos
+        //Votos blancos
     case 3:
         blanco.append(1);
         break;
@@ -81,6 +82,6 @@ void Principal::llenarPila(int numero)
 void Principal::on_actionResultados_triggered()
 {
     this->hide();
-    Administrador *admin = new Administrador();
+    Administrador *admin = new Administrador(this);
     admin->show();
 }

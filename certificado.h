@@ -2,6 +2,7 @@
 #define CERTIFICADO_H
 
 #include <QDialog>
+#include <QDate>
 #include "votante.h"
 namespace Ui {
 class Certificado;
@@ -12,15 +13,12 @@ class Certificado : public QDialog
     Q_OBJECT
 
 public:
-    explicit Certificado(QWidget *parent = nullptr);
+    explicit Certificado(QWidget *parent = nullptr, QString nombre = nullptr, QString cedula = nullptr);
+    Certificado();
     ~Certificado();
-
-    Votante *getVotante() const;
-    void setVotante(Votante *value);
 
 private:
     Ui::Certificado *ui;
-    Votante *votante;
 };
 
 #endif // CERTIFICADO_H

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMap>
 #include <QString>
+#include <QMessageBox>
 #include "resultados.h"
 
 using namespace std;
