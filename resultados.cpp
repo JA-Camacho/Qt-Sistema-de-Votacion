@@ -29,7 +29,7 @@ void Resultados::dibujar()
     int x = 50;
     int y = 50;
     int ancho = 100;
-    int alto_1 = 10;
+    int alto_1 = 50;
     int alto_2 = 20;
     int alto_3 = 50;
     int alto_4 = 100;
