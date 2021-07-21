@@ -6,8 +6,10 @@ Administrador::Administrador(QWidget *parent) :
     ui(new Ui::Administrador)
 {
     ui->setupUi(this);
-    map["Jose"] = 123456;
-    map["Steven"] = 9876;
+
+    map.insert("Jose", 123456);
+    map.insert("Joel", 9876);
+
 }
 
 Administrador::~Administrador()
@@ -17,16 +19,19 @@ Administrador::~Administrador()
 
 void Administrador::on_cmdAcceder_clicked()
 {
-    foreach (int value, map)
-
-        if(QString::number(value) == ui->inContrasena->text())
+    QMapIterator<QString, int> i(map);
+    while (i.hasNext())
+    {
+        i.next();
+        if(i.key() == ui->inUsuario->text() && QString::number(i.value()) == ui->inContrasena->text())
         {
-            qDebug() << "Permitido";
+            Resultados *resultados = new Resultados();
+            resultados->exec();
             break;
         }
         else
         {
             qDebug() << "No es un usuario";
-            break;
         }
+    }
 }

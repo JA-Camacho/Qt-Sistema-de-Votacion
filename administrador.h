@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QMap>
+#include <QString>
+#include "resultados.h"
+
+using namespace std;
 namespace Ui {
 class Administrador;
 }

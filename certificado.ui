@@ -3,7 +3,7 @@
  <class>Certificado</class>
  <widget class="QWidget" name="Certificado">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModal</enum>
   </property>
   <property name="geometry">
    <rect>
