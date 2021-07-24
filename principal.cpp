@@ -6,6 +6,7 @@ Principal::Principal(QWidget *parent)
     , ui(new Ui::Principal)
 {
     ui->setupUi(this);
+    m_cedula = "";
 }
 
 Principal::~Principal()
@@ -14,55 +15,76 @@ Principal::~Principal()
 }
 void Principal::on_cmdIngresar_clicked()
 {
-    //Obtener el nombre
-    QString cedula = ui->inCedula->text();
+    //Obtener la cedula
+    m_cedula = ui->inCedula->text();
     //valida que el nombre no este vacio
-    if(cedula.isEmpty())
+    if(m_cedula.isEmpty())
     {
         QMessageBox::warning(this, "Principal", "No has proporcionado la cedula");
         return;
     }
-    QFile usuario(":/usuarios/Recursos/usuarios.csv");
-    QTextStream io;
-    usuario.open(QIODevice::ReadOnly | QIODevice::Text);
-    io.setDevice(&usuario);
-    auto linea = io.readLine();
-    auto cedulas =linea.split(";");
-    for(int i = 0; i< cedulas.size(); i++)
+    if(!validar(m_cedula))
+        return;
+    else
     {
-        if(cedulas.at(i) == cedula)
-        {
 
-            Votacion *votacion = new Votacion(this);
-            Votante *votante = new Votante("Jose", cedulas.at(i));
-            qDebug() << votante->nombre() << votante->cedula();
-            votacion->exec();
-            llenarPila(votacion->voto());
-            Certificado *certificado = new Certificado(this, votante->nombre(), votante->cedula());
-            certificado->exec();
+        Votacion *votacion = new Votacion(this);
+        Votante *votante = new Votante("Jose", m_cedula);
+        votacion->exec();
 
-            qDebug()<< "Arauz: " <<arauz.size();
-            qDebug()<< "Lasoo: " <<lasso.size();
-            qDebug()<< "Nulo: " <<nulo.size();
-            qDebug()<< "Blanco: " <<blanco.size();
+        this->llenarPila(votacion->voto());
+        qDebug() <<"Arauz" << arauz.size()
+                << "Lasso" << lasso.size()
+                << "Nulo" << nulo.size()
+                << "blanco" << blanco.size();
 
-        }
-        else
-        {
-            ui->outAdvertencia->setText("USTED NO PERTENECE A ESTE PADRON ELECTORAL");
-            ui->inCedula->setText("");
-            ui->inCedula->setFocus();
-        }
+        Certificado *certificado = new Certificado(this, votante->nombre(), votante->cedula());
+        certificado->exec();
+        return;
     }
+}
+
+void Principal::on_actionResultados_triggered()
+{
+    this->hide();
+    Administrador *admin = new Administrador(this);
+    admin->show();
+}
+
+bool Principal::validar(QString cedula)
+{
+    if(!m_controlador->validarCedulaEC(cedula))
+    {
+        ui->statusbar->setStyleSheet("color: rgb(255, 48, 48);");
+        ui->statusbar->showMessage(tr("La cedula que ha ingresado no es Ecuatoriana"), 5000);
+        return false;
+    }
+    else if(!m_controlador->padron(cedula))
+    {
+        ui->statusbar->setStyleSheet("color: rgb(255, 48, 48);");
+        ui->statusbar->showMessage(tr("Usted no pertenece a este Padrón Electoral"), 5000);
+        return false;
+    }
+    /*else if(m_controlador->siHaVotado(cedula))
+    {
+        QMessageBox::warning(this, "Principal", "Usted ya ha votado");
+        return false;
+    }*/
+    return true;
+}
+
+QString Principal::cedula() const
+{
+    return m_cedula;
 }
 
 void Principal::llenarPila(int numero)
 {
     switch(numero)
     {
-    //Votos nulos
+    //Votos blanco
     case 0:
-        nulo.append(1);
+        blanco.append(1);
         break;
         //Votos para arauz
     case 1:
@@ -72,16 +94,9 @@ void Principal::llenarPila(int numero)
     case 2:
         lasso.append(1);
         break;
-        //Votos blancos
+        //Votos nulos
     case 3:
-        blanco.append(1);
+        nulo.append(1);
         break;
     }
-}
-
-void Principal::on_actionResultados_triggered()
-{
-    this->hide();
-    Administrador *admin = new Administrador(this);
-    admin->show();
 }

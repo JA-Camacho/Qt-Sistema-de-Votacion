@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     administrador.cpp \
     certificado.cpp \
+    controlador.cpp \
     main.cpp \
     principal.cpp \
     resultados.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 HEADERS += \
     administrador.h \
     certificado.h \
+    controlador.h \
     principal.h \
     resultados.h \
     votacion.h \

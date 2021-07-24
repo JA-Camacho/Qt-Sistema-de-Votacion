@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QDate>
+#include <QPainter>
 #include "votante.h"
 namespace Ui {
 class Certificado;
@@ -19,6 +20,9 @@ public:
 
 private:
     Ui::Certificado *ui;
+    QPixmap lienzo;
+    QImage imagen = QImage("Foto.jpeg");
+    void dibujar(QString nombre, QString cedula);
 };
 
 #endif // CERTIFICADO_H
