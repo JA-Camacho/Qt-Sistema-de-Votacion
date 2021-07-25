@@ -1,7 +1,7 @@
 #include "resultados.h"
 #include "ui_resultados.h"
 
-Resultados::Resultados(QWidget *parent) :
+Resultados::Resultados(QWidget *parent, int arauz, int lasso, int blanco, int nulo) :
     QDialog(parent),
     ui(new Ui::Resultados)
 {
@@ -11,7 +11,7 @@ Resultados::Resultados(QWidget *parent) :
     lienzo = QPixmap(660,500);
 
     //Invocar al metodo dibujar
-    this->dibujar();
+    this->dibujar(arauz, lasso, blanco, nulo);
 }
 
 Resultados::~Resultados()
@@ -19,7 +19,7 @@ Resultados::~Resultados()
     delete ui;
 }
 
-void Resultados::dibujar()
+void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
 {
     //Rellenar el lienzo de color blanco
     lienzo.fill(Qt::white);
@@ -29,10 +29,10 @@ void Resultados::dibujar()
     int x = 50;
     int y = 50;
     int ancho = 100;
-    int alto_1 = 50;
-    int alto_2 = 20;
-    int alto_3 = 50;
-    int alto_4 = 100;
+    int alto_1 = arauz;
+    int alto_2 = lasso;
+    int alto_3 = blanco;
+    int alto_4 = nulo;
 
     //Crear el pincel para el borde
     QPen pincel;

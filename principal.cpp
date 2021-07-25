@@ -29,18 +29,15 @@ void Principal::on_cmdIngresar_clicked()
     {
 
         Votacion *votacion = new Votacion(this);
-        Votante *votante = new Votante("Jose", m_cedula);
+        Votante *votante = new Votante(m_controlador->enviarNombre(m_cedula), m_cedula);
         votacion->exec();
 
         this->llenarPila(votacion->voto());
-        qDebug() <<"Arauz" << arauz.size()
-                << "Lasso" << lasso.size()
-                << "Nulo" << nulo.size()
-                << "blanco" << blanco.size();
 
         Certificado *certificado = new Certificado(this, votante->nombre(), votante->cedula());
         certificado->exec();
-        return;
+        ui->inCedula->clear();
+        ui->inCedula->setFocus();
     }
 }
 

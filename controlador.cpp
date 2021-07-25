@@ -1,5 +1,5 @@
 #include "controlador.h"
-#include <QDebug>
+
 
 Controlador::Controlador(QObject *parent) : QObject(parent)
 {
@@ -88,6 +88,32 @@ bool Controlador::validarCedulaEC(QString cedula)
     return ultimoCedula == verificador? true : false;
 }
 
+QString Controlador::enviarNombre(QString cedula)
+{
+    QFile usuario(":/usuarios/Recursos/usuarios.csv");
+    QTextStream io;
+    usuario.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!usuario.isOpen())
+    {
+        QMessageBox::information(0, "Aviso", "Error de Apertura");
+    }
+    io.setDevice(&usuario);
+    while(!io.atEnd())
+    {
+        auto linea = io.readLine();
+        auto valores =linea.split(";");
+        for(int i = 0; i< valores.size(); i++)
+        {
+            if(valores.at(0) == cedula)
+            {
+                return valores.at(1); //Si pertenece al padron electoral
+            }
+            else
+                break;
+        }
+    }
+}
+
 /*int Controlador::getArauz()
 {
     return arauz.size();
@@ -113,15 +139,27 @@ bool Controlador::padron(QString cedula)
     QFile usuario(":/usuarios/Recursos/usuarios.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
-    io.setDevice(&usuario);
-    auto linea = io.readLine();
-    auto cedulas =linea.split(";");
-    for(int i = 0; i< cedulas.size(); i++)
+    if(!usuario.isOpen())
     {
-        if(cedulas.at(i) == cedula)
+        QMessageBox::information(0, "Aviso", "Error de Apertura");
+    }
+    io.setDevice(&usuario);
+
+    while(!io.atEnd())
+    {
+        auto linea = io.readLine();
+        auto valores =linea.split(";");
+        int numeroColumnas = valores.size();
+        for(int i = 0; i< numeroColumnas; i++)
         {
-            return true; //Si pertenece al padron electoral
+            if(valores.at(0) == cedula)
+            {
+                return true; //Si pertenece al padron electoral
+            }
+            else
+                break;
         }
+
     }
     return false; //No pertenece al padron electoral
 }

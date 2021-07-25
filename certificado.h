@@ -1,6 +1,7 @@
 #ifndef CERTIFICADO_H
 #define CERTIFICADO_H
 
+#include <QDir>
 #include <QDialog>
 #include <QDate>
 #include <QPainter>
@@ -18,10 +19,14 @@ public:
     Certificado();
     ~Certificado();
 
+private slots:
+    void on_cmdGuardar_released();
+
 private:
     Ui::Certificado *ui;
     QPixmap lienzo;
-    QImage imagen = QImage("Foto.jpeg");
+    QImage imagen;
+    QString nombre;
     void dibujar(QString nombre, QString cedula);
 };
 

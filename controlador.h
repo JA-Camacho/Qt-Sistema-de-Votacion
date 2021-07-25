@@ -27,6 +27,7 @@ public:
     int getLasso();
     int getNulo();
     int getBlanco();
+    QString enviarNombre(QString cedula);
 
 
 signals:
