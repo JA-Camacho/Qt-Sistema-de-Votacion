@@ -19,14 +19,9 @@ private:
 
 public:
     explicit Controlador(QObject *parent = nullptr);
-    void llenarPila(int numero);
     bool siHaVotado(QString cedula);
     bool padron(QString cedula);
     bool validarCedulaEC(QString cedula);
-    int getArauz();
-    int getLasso();
-    int getNulo();
-    int getBlanco();
     QString enviarNombre(QString cedula);
 
 

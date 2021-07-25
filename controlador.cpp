@@ -6,29 +6,6 @@ Controlador::Controlador(QObject *parent) : QObject(parent)
 
 }
 
-/*void Controlador::llenarPila(int numero)
-{
-    switch(numero)
-    {
-    //Votos nulos
-    case 0:
-        nulo.append(1);
-        break;
-        //Votos para arauz
-    case 1:
-        arauz.append(1);
-        break;
-        //Votos para lasso
-    case 2:
-        lasso.append(1);
-        break;
-        //Votos blancos
-    case 3:
-        blanco.append(1);
-        break;
-    }
-}*/
-
 bool Controlador::siHaVotado(QString cedula)
 {
     if(!listaVotantes.empty())
@@ -112,27 +89,8 @@ QString Controlador::enviarNombre(QString cedula)
                 break;
         }
     }
+    return "\0";
 }
-
-/*int Controlador::getArauz()
-{
-    return arauz.size();
-}
-
-int Controlador::getLasso()
-{
-    return lasso.size();
-}
-
-int Controlador::getNulo()
-{
-    return nulo.size();
-}
-
-int Controlador::getBlanco()
-{
-    return blanco.size();
-}*/
 
 bool Controlador::padron(QString cedula)
 {
