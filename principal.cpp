@@ -29,7 +29,9 @@ void Principal::on_cmdIngresar_clicked()
         return;
     else
     {
+        //Objeto Dinamico votacion y votante
         Votacion *votacion = new Votacion(this);
+
         Votante *votante = new Votante(m_controlador->enviarNombre(m_cedula), m_cedula);
         votacion->exec();
 
@@ -54,23 +56,23 @@ bool Principal::validar(QString cedula)
 {
     if(!m_controlador->validarCedulaEC(cedula))
     {
-        ui->statusbar->setStyleSheet("color: rgb(255, 48, 48);");
-        ui->statusbar->showMessage(tr("La cedula que ha ingresado no es Ecuatoriana"), 5000);
-        return false;
+        ui->statusbar->setStyleSheet("color: rgb(255, 48, 48);");//COLOR ROJO
+        ui->statusbar->showMessage(tr("La cedula que ha ingresado no es Ecuatoriana"), 5000);//TIEMPO EN MILISEGUNDOS
+        return false;//NO PUEDE VOTAR
     }
     else if(!m_controlador->padron(cedula))
     {
         ui->statusbar->setStyleSheet("color: rgb(255, 48, 48);");
         ui->statusbar->showMessage(tr("Usted no pertenece a este Padrón Electoral"), 5000);
-        return false;
+        return false;//NO PUEDE VOTAR
     }
     else if(m_controlador->siHaVotado(cedula)){
         QMessageBox::warning(this, "Principal", "Usted ya ha votado");
         ui->inCedula->clear();
         ui->inCedula->setFocus();
-        return false;
+        return false;//NO PUEDE VOTAR
     }
-    return true;
+    return true;//si puede votar
 }
 
 QString Principal::cedula() const

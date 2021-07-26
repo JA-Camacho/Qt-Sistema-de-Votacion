@@ -9,6 +9,7 @@ Administrador::Administrador(QWidget *parent) :
 
     map.insert("Jose", 123456);
     map.insert("Joel", 9876);
+    map.insert("Gilmar",5473);
 
 }
 
@@ -30,5 +31,5 @@ void Administrador::on_cmdAcceder_clicked()
             break;
         }
     }
-    QMessageBox::warning(this, "Administrador", "Usuario y/o Contraseña Incorrecta", "Chido");
+    QMessageBox::warning(this, "Administrador", "Usuario y/o Contraseña Incorrecta", "Aceptar");
 }

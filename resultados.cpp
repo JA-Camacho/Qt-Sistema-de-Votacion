@@ -123,18 +123,18 @@ void Resultados::cargarVotos()
         {
             if(valores.at(0) == "Arauz")
             {
-                m_arauz = (valores.at(1).toInt());
+                m_arauz = (valores.at(1).toInt());//retorna los votos como enteros
             }
             else if(valores.at(0) == "Lasso")
             {
-                m_lasso = (valores.at(1).toInt());
+                m_lasso = (valores.at(1).toInt());//retorna los votos como enteros
             }
             else if(valores.at(0) == "Nulo")
             {
-                m_nulo = (valores.at(1).toInt());
+                m_nulo = (valores.at(1).toInt());//retorna los votos como enteros
             }
             else
-                m_blanco = (valores.at(1).toInt());
+                m_blanco = (valores.at(1).toInt());//retorna los votos como enteros
         }
 
     }

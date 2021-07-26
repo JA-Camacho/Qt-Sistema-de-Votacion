@@ -7,11 +7,7 @@ Controlador::Controlador(QObject *parent) : QObject(parent)
 
 bool Controlador::siHaVotado(QString cedula)
 {
-    //Crear un objeto QDir a partir del directorio del usuario
-    QDir directorio = QDir::current();
-    //Agregar al path absoluto del objeto un nombre por defecto del archivo
-    QString pathArchivo = directorio.absolutePath() + "/Lista de Personas que ya votaron.csv";
-    QFile usuario(pathArchivo);
+    QFile usuario("Lista de Personas que ya votaron.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly);
     io.setDevice(&usuario);
@@ -74,10 +70,6 @@ QString Controlador::enviarNombre(QString cedula)
     QFile usuario(":/usuarios/Recursos/usuarios.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
-    if(!usuario.isOpen())
-    {
-        QMessageBox::information(0, "Aviso", "Error de Apertura");
-    }
     io.setDevice(&usuario);
     while(!io.atEnd())
     {
@@ -87,7 +79,7 @@ QString Controlador::enviarNombre(QString cedula)
         {
             if(valores.at(0) == cedula)
             {
-                return valores.at(1); //Si pertenece al padron electoral
+                return valores.at(1); //Retornamos el nombre de la cedula registrada en el padron electoral
             }
             else
                 break;
@@ -98,11 +90,7 @@ QString Controlador::enviarNombre(QString cedula)
 
 void Controlador::guardarVotos(int arauz, int lasso, int nulo, int blanco)
 {
-    //Crear un objeto QDir a partir del directorio del usuario
-    QDir directorio = QDir::current();
-    //Agregar al path absoluto del objeto un nombre por defecto del archivo
-    QString pathArchivo = directorio.absolutePath() + "/Votos.csv";
-    QFile votos(pathArchivo);
+    QFile votos("Votos.csv");
     QTextStream io;
     io.setDevice(&votos);
     votos.open(QIODevice::ReadWrite | QIODevice::Text);
@@ -159,11 +147,7 @@ void Controlador::cargarVotos(QStack<int> &arauz, QStack<int> &lasso, QStack<int
 
 void Controlador::guardarCedulas(QString cedula)
 {
-    //Crear un objeto QDir a partir del directorio del usuario
-    QDir directorio = QDir::current();
-    //Agregar al path absoluto del objeto un nombre por defecto del archivo
-    QString pathArchivo = directorio.absolutePath() + "/Lista de Personas que ya votaron.csv";
-    QFile usuario(pathArchivo);
+    QFile usuario("Lista de Personas que ya votaron.csv");
     QTextStream io;
     usuario.open(QIODevice::WriteOnly | QIODevice::Append);
     io.setDevice(&usuario);
@@ -176,10 +160,6 @@ bool Controlador::padron(QString cedula)
     QFile usuario(":/usuarios/Recursos/usuarios.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
-    if(!usuario.isOpen())
-    {
-        QMessageBox::information(0, "Aviso", "Error de Apertura");
-    }
     io.setDevice(&usuario);
 
     while(!io.atEnd())

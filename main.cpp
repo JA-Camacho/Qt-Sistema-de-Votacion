@@ -10,8 +10,10 @@ int main(int argc, char *argv[])
     QFile fechas("Fecha.csv");
     QTextStream io;
     io.setDevice(&fechas);
-    fechas.open(QIODevice::ReadWrite | QIODevice::Text);
+    fechas.open(QIODevice::ReadOnly);
+    //Linea donde va el nombre de cada cosa
     auto linea = io.readLine();
+    //Linea donde van fecha;hora inicial,hora final separados por ;
     auto linea2 = io.readLine();
     auto valores =linea2.split(";");
     Principal w;
