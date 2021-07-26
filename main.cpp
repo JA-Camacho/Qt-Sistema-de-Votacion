@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include <QObject>
 #include <QDebug>
-#define FECHA "24-07-2021"
+#define FECHA "26-07-2021"
 #define HORAINICIAL "00:00"
 #define HORAFINAL "23:59"
 int main(int argc, char *argv[])

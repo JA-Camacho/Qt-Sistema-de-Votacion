@@ -19,7 +19,7 @@ bool Controlador::siHaVotado(QString cedula)
     }
     else
     {
-        return false;
+        return true;
     }
 }
 

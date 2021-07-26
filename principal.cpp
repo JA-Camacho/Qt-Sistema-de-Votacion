@@ -67,6 +67,18 @@ bool Principal::validar(QString cedula)
         QMessageBox::warning(this, "Principal", "Usted ya ha votado");
         return false;
     }*/
+    yaVotaron.push_front(cedula);
+    /*for (int j=0;j<yaVotaron.size();j++) {
+            qDebug() << "Cola" << yaVotaron.at(j);
+
+    }*/
+    if(yaVotaron.removeDuplicates()==1){
+        QMessageBox::warning(this, "Principal", "Usted ya ha votado");
+        ui->inCedula->clear();
+        ui->inCedula->setFocus();
+        return false;
+    }
+    //qDebug() << "Cola" << yaVotaron.removeDuplicates();
     return true;
 }
 

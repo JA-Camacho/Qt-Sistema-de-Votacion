@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QStack>
+#include <QQueue>
 #include <QMessageBox>
 #include <QDir>
 #include <QTextStream>

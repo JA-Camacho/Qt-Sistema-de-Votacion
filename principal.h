@@ -29,6 +29,7 @@ private:
     Ui::Principal *ui;
     QString m_cedula;
     Controlador *m_controlador;
+    QQueue <QString> yaVotaron;
     QStack <int> arauz;
     QStack <int> lasso;
     QStack <int> nulo;
