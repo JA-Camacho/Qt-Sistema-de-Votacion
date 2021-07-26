@@ -5,6 +5,9 @@
 #include <QDialog>
 #include <QDate>
 #include <QPainter>
+#include <QFileDialog>
+#include <QMessageBox>
+
 #include "votante.h"
 namespace Ui {
 class Certificado;

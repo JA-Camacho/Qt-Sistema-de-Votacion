@@ -1,8 +1,7 @@
 #include "certificado.h"
 #include "ui_certificado.h"
-#include <QDebug>
-#include <QFileDialog>
-#include <QMessageBox>
+
+
 Certificado::Certificado(QWidget *parent, QString nombre, QString cedula) :
     QDialog(parent),
     ui(new Ui::Certificado)

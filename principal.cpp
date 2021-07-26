@@ -1,6 +1,6 @@
 #include "principal.h"
 #include "ui_principal.h"
-#include <QDebug>
+
 Principal::Principal(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Principal)

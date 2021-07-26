@@ -196,7 +196,6 @@ bool Controlador::padron(QString cedula)
             else
                 break;
         }
-
     }
     return false; //No pertenece al padron electoral
 }

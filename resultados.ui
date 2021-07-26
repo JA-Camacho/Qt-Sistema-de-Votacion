@@ -28,7 +28,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="cmdExcel">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -41,7 +41,7 @@
     <string>Guardar Datos en Excel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="cmdImagen">
    <property name="geometry">
     <rect>
      <x>400</x>

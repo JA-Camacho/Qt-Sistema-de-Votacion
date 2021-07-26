@@ -1,17 +1,20 @@
 #include "resultados.h"
 #include "ui_resultados.h"
 
-Resultados::Resultados(QWidget *parent, int arauz, int lasso, int blanco, int nulo) :
+Resultados::Resultados(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Resultados)
 {
     ui->setupUi(this);
 
+    //Cargar los votos del archivo
+    this->cargarVotos();
+
     //Crear el lienzo
     lienzo = QPixmap(660,500);
 
     //Invocar al metodo dibujar
-    this->dibujar(arauz, lasso, blanco, nulo);
+    this->dibujar();
 }
 
 Resultados::~Resultados()
@@ -19,7 +22,7 @@ Resultados::~Resultados()
     delete ui;
 }
 
-void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
+void Resultados::dibujar()
 {
     //Rellenar el lienzo de color blanco
     lienzo.fill(Qt::white);
@@ -29,10 +32,10 @@ void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
     int x = 50;
     int y = 50;
     int ancho = 100;
-    int alto_1 = arauz;
-    int alto_2 = lasso;
-    int alto_3 = blanco;
-    int alto_4 = nulo;
+    int alto_1 = m_arauz;
+    int alto_2 = m_lasso;
+    int alto_3 = m_blanco;
+    int alto_4 = m_nulo;
 
     //Crear el pincel para el borde
     QPen pincel;
@@ -49,7 +52,8 @@ void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
     painter.setFont(QFont("Arial", 10));
 
     painter.setPen(Qt::black);
-    painter.drawText(x, (400 - alto_1), "Arauz");
+    painter.drawText(x, (400 - alto_1) + 17, "Arauz");
+    painter.drawText(x, (400 - alto_1), "Lista 1");
 
     //Crear un nuevo color
     QColor colorBorde2(78,3,48);
@@ -68,7 +72,9 @@ void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
     painter.drawRect(x+150, y+(400-alto_2), ancho, alto_2);
 
     painter.setPen(Qt::black);
-    painter.drawText(x + 150, (400 - alto_2), "Lasso");
+    painter.drawText(x + 150, (400 - alto_2), "Lista 21");
+    painter.drawText(x + 150, (400 - alto_2) + 17, "Lasso");
+
 
     //Creando los colores de la tercera barra
     QColor colorRelleno3(253,253,115);
@@ -83,7 +89,8 @@ void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
     painter.drawRect(x+300, y+(400-alto_3), ancho, alto_3);
 
     painter.setPen(Qt::black);
-    painter.drawText(x + 300, (400-alto_3), "Nulo");
+    painter.drawText(x + 300, (400-alto_3) + 17, "Nulo");
+
 
     //Dibujar cuarta barra
     QColor colorRelleno4(110,250,125);
@@ -94,9 +101,60 @@ void Resultados::dibujar(int arauz, int lasso, int blanco, int nulo)
     painter.drawRect(x+450, y+(400-alto_4), ancho, alto_4);
 
     painter.setPen(Qt::black);
-    painter.drawText(x+450, (400-alto_4), "Blanco");
+    painter.drawText(x+450, (400-alto_4) + 17, "Blanco");
 
     //Mostrar el lienzo en el cuadro
     ui->outResultados->setPixmap(lienzo);
 }
 
+void Resultados::cargarVotos()
+{
+    QFile votos("Votos.csv");
+    QTextStream io;
+    io.setDevice(&votos);
+    votos.open(QIODevice::ReadOnly);
+    io.setDevice(&votos);
+    while(!io.atEnd())
+    {
+        auto linea = io.readLine();
+        auto valores =linea.split(";");
+        int numeroColumnas = valores.size();
+        for(int i = 0; i< numeroColumnas; i++)
+        {
+            if(valores.at(0) == "Arauz")
+            {
+                m_arauz = (valores.at(1).toInt());
+            }
+            else if(valores.at(0) == "Lasso")
+            {
+                m_lasso = (valores.at(1).toInt());
+            }
+            else if(valores.at(0) == "Nulo")
+            {
+                m_nulo = (valores.at(1).toInt());
+            }
+            else
+                m_blanco = (valores.at(1).toInt());
+        }
+
+    }
+}
+
+
+void Resultados::on_cmdImagen_released()
+{
+    QString nombreArchivo = QFileDialog::getSaveFileName(this,
+                                                         "Guardar imagen",
+                                                         QString(),
+                                                         "Imagenes (*.png)");
+    if (!nombreArchivo.isEmpty()){
+        if (lienzo.save(nombreArchivo))
+            QMessageBox::information(this,
+                                     "Guardar imagen",
+                                     "Archivo almacenado en: " + nombreArchivo);
+        else
+            QMessageBox::warning(this,
+                                 "Guardar imagen",
+                                 "No se pudo almacenar la imagen.");
+    }
+}
