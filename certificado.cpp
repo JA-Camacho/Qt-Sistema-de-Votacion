@@ -9,7 +9,7 @@ Certificado::Certificado(QWidget *parent, QString nombre, QString cedula) :
 {
     ui->setupUi(this);
     this->nombre = cedula;
-    imagen = QImage(QString("%1.jpg").arg(cedula));
+    imagen = QImage(QString("%1.jpeg").arg(cedula));
     //Crear el lienzo
     lienzo = QPixmap(523,200);
     //Invocar al metodo dibujar

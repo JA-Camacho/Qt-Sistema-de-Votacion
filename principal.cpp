@@ -7,6 +7,8 @@ Principal::Principal(QWidget *parent)
 {
     ui->setupUi(this);
     m_cedula = "";
+    m_controlador->cargarVotos(arauz, lasso, nulo, blanco);
+
 }
 
 Principal::~Principal()
@@ -27,13 +29,13 @@ void Principal::on_cmdIngresar_clicked()
         return;
     else
     {
-
         Votacion *votacion = new Votacion(this);
         Votante *votante = new Votante(m_controlador->enviarNombre(m_cedula), m_cedula);
         votacion->exec();
 
         this->llenarPila(votacion->voto());
-
+        m_controlador->guardarCedulas(m_cedula);
+        m_controlador->guardarVotos(arauz.size(), lasso.size(), nulo.size(), blanco.size());
         Certificado *certificado = new Certificado(this, votante->nombre(), votante->cedula());
         certificado->exec();
         ui->inCedula->clear();
@@ -62,23 +64,12 @@ bool Principal::validar(QString cedula)
         ui->statusbar->showMessage(tr("Usted no pertenece a este Padrón Electoral"), 5000);
         return false;
     }
-    /*else if(m_controlador->siHaVotado(cedula))
-    {
-        QMessageBox::warning(this, "Principal", "Usted ya ha votado");
-        return false;
-    }*/
-    yaVotaron.push_front(cedula);
-    /*for (int j=0;j<yaVotaron.size();j++) {
-            qDebug() << "Cola" << yaVotaron.at(j);
-
-    }*/
-    if(yaVotaron.removeDuplicates()==1){
+    else if(m_controlador->siHaVotado(cedula)){
         QMessageBox::warning(this, "Principal", "Usted ya ha votado");
         ui->inCedula->clear();
         ui->inCedula->setFocus();
         return false;
     }
-    //qDebug() << "Cola" << yaVotaron.removeDuplicates();
     return true;
 }
 
