@@ -32,10 +32,17 @@ void Resultados::dibujar()
     int x = 50;
     int y = 50;
     int ancho = 100;
-    int alto_1 = m_arauz;
-    int alto_2 = m_lasso;
-    int alto_3 = m_blanco;
-    int alto_4 = m_nulo;
+    float alto_1 = m_arauz;
+    float alto_2 = m_lasso;
+    float alto_3 = m_blanco;
+    float alto_4 = m_nulo;
+    float total=m_arauz+m_lasso+m_blanco+m_nulo;
+    //PORCENTAJE
+    float porArauz=(m_arauz*100)/total;
+    float porLasso=(m_lasso*100)/total;
+    float porNulo=(m_nulo*100)/total;
+    float porBlanco=(m_blanco*100)/total;
+
 
     //Crear el pincel para el borde
     QPen pincel;
@@ -54,6 +61,7 @@ void Resultados::dibujar()
     painter.setPen(Qt::black);
     painter.drawText(x, (400 - alto_1) + 17, "Arauz");
     painter.drawText(x, (400 - alto_1), "Lista 1");
+    painter.drawText(x, (400 - alto_1)+34,QString::number(porArauz,'f',2)+" %");
 
     //Crear un nuevo color
     QColor colorBorde2(78,3,48);
@@ -74,6 +82,7 @@ void Resultados::dibujar()
     painter.setPen(Qt::black);
     painter.drawText(x + 150, (400 - alto_2), "Lista 21");
     painter.drawText(x + 150, (400 - alto_2) + 17, "Lasso");
+    painter.drawText(x + 150, (400 - alto_2) + 34,QString::number(porLasso,'f',2)+" %");
 
 
     //Creando los colores de la tercera barra
@@ -90,6 +99,7 @@ void Resultados::dibujar()
 
     painter.setPen(Qt::black);
     painter.drawText(x + 300, (400-alto_3) + 17, "Nulo");
+    painter.drawText(x + 300, (400-alto_3) + 34,QString::number(porNulo,'f',2)+" %");
 
 
     //Dibujar cuarta barra
@@ -102,6 +112,7 @@ void Resultados::dibujar()
 
     painter.setPen(Qt::black);
     painter.drawText(x+450, (400-alto_4) + 17, "Blanco");
+    painter.drawText(x+450, (400-alto_4) + 34,QString::number(porBlanco,'f',2)+" %");
 
     //Mostrar el lienzo en el cuadro
     ui->outResultados->setPixmap(lienzo);
