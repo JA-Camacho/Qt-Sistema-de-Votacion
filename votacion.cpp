@@ -9,14 +9,11 @@ Votacion::Votacion(QWidget *parent) :
     m_voto = 0; //Voto en blanco
 }
 
-Votacion::~Votacion()
-{
+Votacion::~Votacion(){
     delete ui;
 }
 
-
-int Votacion::voto() const
-{
+int Votacion::voto() const{
     return m_voto;
 }
 
