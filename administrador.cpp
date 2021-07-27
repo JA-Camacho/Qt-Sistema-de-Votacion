@@ -31,5 +31,12 @@ void Administrador::on_cmdAcceder_clicked()
             break;
         }
     }
-    QMessageBox::warning(this, "Administrador", "Usuario y/o Contraseña Incorrecta", "Aceptar");
+    QMessageBox::warning(this, tr("Administrador"), tr("Usuario y/o Contraseña Incorrecta"), tr("Aceptar"));
+}
+
+void Administrador::on_cmdCancelar_clicked()
+{
+    this->close();
+    Principal *principal = new Principal();
+    principal->show();
 }

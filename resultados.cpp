@@ -60,7 +60,7 @@ void Resultados::dibujar()
 
     painter.setPen(Qt::black);
     painter.drawText(x, (400 - alto_1) + 17, "Arauz");
-    painter.drawText(x, (400 - alto_1), "Lista 1");
+    painter.drawText(x, (400 - alto_1), tr("Lista 1"));
     painter.drawText(x, (400 - alto_1)+34,QString::number(porArauz,'f',2)+" %");
 
     //Crear un nuevo color
@@ -80,7 +80,7 @@ void Resultados::dibujar()
     painter.drawRect(x+150, y+(400-alto_2), ancho, alto_2);
 
     painter.setPen(Qt::black);
-    painter.drawText(x + 150, (400 - alto_2), "Lista 21");
+    painter.drawText(x + 150, (400 - alto_2), tr("Lista 21"));
     painter.drawText(x + 150, (400 - alto_2) + 17, "Lasso");
     painter.drawText(x + 150, (400 - alto_2) + 34,QString::number(porLasso,'f',2)+" %");
 
@@ -98,7 +98,7 @@ void Resultados::dibujar()
     painter.drawRect(x+300, y+(400-alto_3), ancho, alto_3);
 
     painter.setPen(Qt::black);
-    painter.drawText(x + 300, (400-alto_3) + 17, "Nulo");
+    painter.drawText(x + 300, (400-alto_3) + 17, tr("Nulo"));
     painter.drawText(x + 300, (400-alto_3) + 34,QString::number(porNulo,'f',2)+" %");
 
 
@@ -111,7 +111,7 @@ void Resultados::dibujar()
     painter.drawRect(x+450, y+(400-alto_4), ancho, alto_4);
 
     painter.setPen(Qt::black);
-    painter.drawText(x+450, (400-alto_4) + 17, "Blanco");
+    painter.drawText(x+450, (400-alto_4) + 17, tr("Blanco"));
     painter.drawText(x+450, (400-alto_4) + 34,QString::number(porBlanco,'f',2)+" %");
 
     //Mostrar el lienzo en el cuadro
@@ -140,7 +140,7 @@ void Resultados::cargarVotos()
             {
                 m_lasso = (valores.at(1).toInt());//retorna los votos como enteros
             }
-            else if(valores.at(0) == "Nulo")
+            else if(valores.at(0) == tr("Nulo"))
             {
                 m_nulo = (valores.at(1).toInt());//retorna los votos como enteros
             }
@@ -151,21 +151,20 @@ void Resultados::cargarVotos()
     }
 }
 
-
 void Resultados::on_cmdImagen_released()
 {
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
-                                                         "Guardar imagen",
+                                                         tr("Guardar imagen"),
                                                          QString(),
                                                          "Imagenes (*.png)");
     if (!nombreArchivo.isEmpty()){
         if (lienzo.save(nombreArchivo))
             QMessageBox::information(this,
-                                     "Guardar imagen",
-                                     "Archivo almacenado en: " + nombreArchivo);
+                                     tr("Guardar imagen"),
+                                     tr("Archivo almacenado en: ") + nombreArchivo);
         else
             QMessageBox::warning(this,
-                                 "Guardar imagen",
-                                 "No se pudo almacenar la imagen.");
+                                 tr("Guardar imagen"),
+                                 tr("No se pudo almacenar la imagen."));
     }
 }

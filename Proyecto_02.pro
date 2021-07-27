@@ -34,6 +34,12 @@ FORMS += \
     resultados.ui \
     votacion.ui
 
+TRANSLATIONS += \
+    Proyecto_02_es_EC.ts \
+    Proyecto_02_en_US.ts \
+    Proyecto_02_qu_EC.ts
+
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

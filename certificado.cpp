@@ -36,12 +36,12 @@ void Certificado::dibujar(QString nombre, QString cedula)
     painter.drawImage(x,y, imagen.scaled(100,110));
     painter.setFont(QFont("Arial", 10));
 
-    painter.drawText(x+200, y,"Certificado de Votación");
-    painter.drawText(x+225, y+17,"Elecciones 2021");
-    painter.drawText(x+200, y+50,"Nombre: " + nombre);
-    painter.drawText(x+200, y+70,"Cedula: " + cedula);
-    painter.drawText(x+200, y+90,"Fecha: " + fecha.toString("dd-MM-yyyy"));
-    painter.drawText(x+200, y+110,"Hora: " + tiempo.toString("hh:mm"));
+    painter.drawText(x+200, y,tr("Certificado de Votación"));
+    painter.drawText(x+225, y+17,tr("Elecciones 2021"));
+    painter.drawText(x+200, y+50,tr("Nombre: ") + nombre);
+    painter.drawText(x+200, y+70,tr("Cedula: ") + cedula);
+    painter.drawText(x+200, y+90,tr("Fecha: ") + fecha.toString("dd-MM-yyyy"));
+    painter.drawText(x+200, y+110,tr("Hora: ") + tiempo.toString("hh:mm"));
     ui->outCertificado->setPixmap(lienzo);
 }
 
@@ -50,7 +50,7 @@ void Certificado::on_cmdGuardar_released()
     //Crear un objeto QDir a partir del directorio del usuario
     QDir directorio = QDir::current();
     //Agregar al path absoluto del objeto un nombre por defecto del archivo
-    QString pathArchivo = directorio.absolutePath() + "/Certificados/";
+    QString pathArchivo = directorio.absolutePath() + tr("/Certificados/");
     lienzo.save(QString(pathArchivo + nombre + ".png"));
     this->close();
 }

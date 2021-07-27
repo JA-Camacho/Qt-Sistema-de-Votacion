@@ -22,7 +22,7 @@ void Principal::on_cmdIngresar_clicked()
     //valida que el nombre no este vacio
     if(m_cedula.isEmpty())
     {
-        QMessageBox::warning(this, "Principal", "No has proporcionado la cedula");
+        QMessageBox::warning(this, tr("Principal"), tr("No has proporcionado la cedula"));
         return;
     }
     if(!validar(m_cedula))
@@ -67,7 +67,7 @@ bool Principal::validar(QString cedula)
         return false;//NO PUEDE VOTAR
     }
     else if(m_controlador->siHaVotado(cedula)){
-        QMessageBox::warning(this, "Principal", "Usted ya ha votado");
+        QMessageBox::warning(this, tr("Principal"), tr("Usted ya ha votado"));
         ui->inCedula->clear();
         ui->inCedula->setFocus();
         return false;//NO PUEDE VOTAR

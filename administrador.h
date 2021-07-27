@@ -6,7 +6,7 @@
 #include <QString>
 #include <QMessageBox>
 #include "resultados.h"
-
+#include "principal.h"
 using namespace std;
 namespace Ui {
 class Administrador;
@@ -22,6 +22,8 @@ public:
 
 private slots:
     void on_cmdAcceder_clicked();
+
+    void on_cmdCancelar_clicked();
 
 private:
     Ui::Administrador *ui;

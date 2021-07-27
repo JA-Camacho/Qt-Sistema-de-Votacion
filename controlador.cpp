@@ -115,7 +115,7 @@ void Controlador::cargarVotos(QStack<int> &arauz, QStack<int> &lasso, QStack<int
     votos.open(QIODevice::ReadWrite | QIODevice::Text);
     if(!votos.isOpen())
     {
-        QMessageBox::information(0, "Aviso", "Error de Apertura");
+        QMessageBox::information(0, tr("Aviso"), tr("Error de Apertura"));
     }
     io.setDevice(&votos);
 
