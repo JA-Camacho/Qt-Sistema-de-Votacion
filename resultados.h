@@ -33,6 +33,7 @@ private:
     int m_lasso;
     int m_blanco;
     int m_nulo;
+    float m_total;
     float porArauz;
     float porLasso;
     float porNulo;

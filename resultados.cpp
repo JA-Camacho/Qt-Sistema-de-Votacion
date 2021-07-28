@@ -27,18 +27,18 @@ void Resultados::dibujar()
     //Rellenar el lienzo de color blanco
     lienzo.fill(Qt::white);
     //Crear el pintor
-    QPainter painter(&lienzo);
+    QPainter picasso(&lienzo);
 
     int x = 50;
     int y = 50;
     int ancho = 100;
 
-    float total=m_arauz+m_lasso+m_blanco+m_nulo;
+    m_total = m_arauz+m_lasso+m_blanco+m_nulo;
     //PORCENTAJE
-    porArauz=(m_arauz*100)/total;
-    porLasso=(m_lasso*100)/total;
-    porNulo=(m_nulo*100)/total;
-    porBlanco=(m_blanco*100)/total;
+    porArauz=(m_arauz*100)/m_total;
+    porLasso=(m_lasso*100)/m_total;
+    porNulo=(m_nulo*100)/m_total;
+    porBlanco=(m_blanco*100)/m_total;
 
     //Obtener el alto a partir del procentaje
     float alto_1 = porArauz*380/100;
@@ -54,17 +54,17 @@ void Resultados::dibujar()
     pincel.setJoinStyle(Qt::MiterJoin);
 
     //Establecer el pincel al pintor
-    painter.setPen(pincel);
+    picasso.setPen(pincel);
 
     //Dibujar la primera barra
-    painter.drawRect(x, y+(400-alto_1), ancho, alto_1);
+    picasso.drawRect(x, y+(400-alto_1), ancho, alto_1);
 
-    painter.setFont(QFont("Arial", 10));
+    picasso.setFont(QFont("Arial", 10));
 
-    painter.setPen(Qt::black);
-    painter.drawText(x, (400 - alto_1) + 17, "Arauz");
-    painter.drawText(x, (400 - alto_1), tr("Lista 1"));
-    painter.drawText(x, (400 - alto_1)+34,QString::number(porArauz,'f',2)+" %");
+    picasso.setPen(Qt::black);
+    picasso.drawText(x, (400 - alto_1) + 17, "Arauz");
+    picasso.drawText(x, (400 - alto_1), tr("Lista 1"));
+    picasso.drawText(x, (400 - alto_1)+34,QString::number(porArauz,'f',2)+" %");
 
     //Crear un nuevo color
     QColor colorBorde2(78,3,48);
@@ -74,18 +74,18 @@ void Resultados::dibujar()
     pincel.setColor(colorBorde2);
 
     //Volver a establecer el pincel al objeto painter
-    painter.setPen(pincel);
+    picasso.setPen(pincel);
 
     //Establecer el color de la brocha del objeto painter
-    painter.setBrush(colorRelleno2);
+    picasso.setBrush(colorRelleno2);
 
     //Dibujar la segunda barra
-    painter.drawRect(x+150, y+(400-alto_2), ancho, alto_2);
+    picasso.drawRect(x+150, y+(400-alto_2), ancho, alto_2);
 
-    painter.setPen(Qt::black);
-    painter.drawText(x + 150, (400 - alto_2), tr("Lista 21"));
-    painter.drawText(x + 150, (400 - alto_2) + 17, "Lasso");
-    painter.drawText(x + 150, (400 - alto_2) + 34,QString::number(porLasso,'f',2)+" %");
+    picasso.setPen(Qt::black);
+    picasso.drawText(x + 150, (400 - alto_2), tr("Lista 21"));
+    picasso.drawText(x + 150, (400 - alto_2) + 17, "Lasso");
+    picasso.drawText(x + 150, (400 - alto_2) + 34,QString::number(porLasso,'f',2)+" %");
 
 
     //Creando los colores de la tercera barra
@@ -95,26 +95,26 @@ void Resultados::dibujar()
     //Establecer nuevo color al pincel
     pincel.setColor(colorBorde3);
     //Establecer el pincel y la brocha al painter
-    painter.setPen(pincel);
-    painter.setBrush(colorRelleno3);
+    picasso.setPen(pincel);
+    picasso.setBrush(colorRelleno3);
     //Dibujar la tercera barra
-    painter.drawRect(x+300, y+(400-alto_3), ancho, alto_3);
+    picasso.drawRect(x+300, y+(400-alto_3), ancho, alto_3);
 
-    painter.setPen(Qt::black);
-    painter.drawText(x + 300, (400-alto_3) + 17, tr("Nulo"));
-    painter.drawText(x + 300, (400-alto_3) + 34,QString::number(porNulo,'f',2)+" %");
+    picasso.setPen(Qt::black);
+    picasso.drawText(x + 300, (400-alto_3) + 17, tr("Nulo"));
+    picasso.drawText(x + 300, (400-alto_3) + 34,QString::number(porNulo,'f',2)+" %");
 
     //Dibujar cuarta barra
     QColor colorRelleno4(110,250,125);
     QColor colorBorde4(100,100,100);
     pincel.setColor(colorBorde4);
-    painter.setPen(pincel);
-    painter.setBrush(colorRelleno4);
-    painter.drawRect(x+450, y+(400-alto_4), ancho, alto_4);
+    picasso.setPen(pincel);
+    picasso.setBrush(colorRelleno4);
+    picasso.drawRect(x+450, y+(400-alto_4), ancho, alto_4);
 
-    painter.setPen(Qt::black);
-    painter.drawText(x+450, (400-alto_4) + 17, tr("Blanco"));
-    painter.drawText(x+450, (400-alto_4) + 34,QString::number(porBlanco,'f',2)+" %");
+    picasso.setPen(Qt::black);
+    picasso.drawText(x+450, (400-alto_4) + 17, tr("Blanco"));
+    picasso.drawText(x+450, (400-alto_4) + 34,QString::number(porBlanco,'f',2)+" %");
 
     //Mostrar el lienzo en el cuadro
     ui->outResultados->setPixmap(lienzo);
@@ -177,10 +177,10 @@ void Resultados::on_cmdExcel_released()
     QDir directorio = QDir::home();
 
     //Agregar al path absoluto del objeto un nombre por defecto del archivo
-    QString pathArchivo = directorio.absolutePath() + "/Resultados.xlsx";
+    QString pathArchivo = directorio.absolutePath() + "/Resultados.csv";
 
     //Abrir un cuadro de dialogo para seleccionar el nombre y ubicacion del archivo a guardar
-    QString fileName = QFileDialog::getSaveFileName(this, "Guardar archivo", pathArchivo, "Libro de Excel(*.xlsx)");
+    QString fileName = QFileDialog::getSaveFileName(this, "Guardar archivo", pathArchivo, "CSV (delimitado por comas) (*.csv)");
 
     //Crear el archivo a partir del nombre arrojado por el cuadro de dialogo
     QFile f(fileName);
@@ -196,6 +196,19 @@ void Resultados::on_cmdExcel_released()
     }
 
     //Guardar el contenido
-    out << "Arauz" << "Lasso" << "Nulo" << "Blanco" << endl;
+    out << ";CNE" << endl
+        << "Resultados" << endl;
+    out << "Arauz;" << "Lasso;" << "Nulo;" << "Blanco" << endl;
+    out << QString::number(m_arauz) << ";"
+        << QString::number(m_lasso) << ";"
+        << QString::number(m_nulo) << ";"
+        << QString::number(m_blanco) << endl;
+
+    out << QString("%" "%1;").arg(porArauz)
+        << QString("%" "%1;").arg(porLasso)
+        << QString("%" "%1;").arg(porNulo)
+        << QString("%" "%1").arg(porBlanco) << endl;
+
+    out << endl << "Votos Totales" << endl << QString::number(m_total);
     f.close();
 }
