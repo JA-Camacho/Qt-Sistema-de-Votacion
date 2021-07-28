@@ -67,7 +67,7 @@ bool Controlador::validarCedulaEC(QString cedula)
 
 QString Controlador::enviarNombre(QString cedula)
 {
-    QFile usuario(":/usuarios/Recursos/usuarios.csv");
+    QFile usuario("usuarios.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
     io.setDevice(&usuario);
@@ -157,7 +157,7 @@ void Controlador::guardarCedulas(QString cedula)
 
 bool Controlador::padron(QString cedula)
 {
-    QFile usuario(":/usuarios/Recursos/usuarios.csv");
+    QFile usuario("usuarios.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
     io.setDevice(&usuario);

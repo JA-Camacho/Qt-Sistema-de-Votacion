@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>457</width>
-    <height>228</height>
+    <height>229</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,6 +33,9 @@
     </item>
     <item>
      <widget class="QWidget" name="widget" native="true">
+      <property name="inputMethodHints">
+       <set>Qt::ImhHiddenText</set>
+      </property>
       <layout class="QFormLayout" name="formLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="label">
@@ -59,6 +62,12 @@
         <widget class="QLineEdit" name="inContrasena">
          <property name="styleSheet">
           <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
         </widget>
        </item>
@@ -125,7 +134,7 @@
      <x>0</x>
      <y>0</y>
      <width>457</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

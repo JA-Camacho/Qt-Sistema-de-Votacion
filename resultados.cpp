@@ -32,16 +32,19 @@ void Resultados::dibujar()
     int x = 50;
     int y = 50;
     int ancho = 100;
-    float alto_1 = m_arauz;
-    float alto_2 = m_lasso;
-    float alto_3 = m_blanco;
-    float alto_4 = m_nulo;
+
     float total=m_arauz+m_lasso+m_blanco+m_nulo;
     //PORCENTAJE
-    float porArauz=(m_arauz*100)/total;
-    float porLasso=(m_lasso*100)/total;
-    float porNulo=(m_nulo*100)/total;
-    float porBlanco=(m_blanco*100)/total;
+    porArauz=(m_arauz*100)/total;
+    porLasso=(m_lasso*100)/total;
+    porNulo=(m_nulo*100)/total;
+    porBlanco=(m_blanco*100)/total;
+
+    //Obtener el alto a partir del procentaje
+    float alto_1 = porArauz*380/100;
+    float alto_2 = porLasso*380/100;
+    float alto_3 = porNulo*380/100;
+    float alto_4 = porBlanco*380/100;
 
 
     //Crear el pincel para el borde
@@ -100,7 +103,6 @@ void Resultados::dibujar()
     painter.setPen(Qt::black);
     painter.drawText(x + 300, (400-alto_3) + 17, tr("Nulo"));
     painter.drawText(x + 300, (400-alto_3) + 34,QString::number(porNulo,'f',2)+" %");
-
 
     //Dibujar cuarta barra
     QColor colorRelleno4(110,250,125);
@@ -167,4 +169,33 @@ void Resultados::on_cmdImagen_released()
                                  tr("Guardar imagen"),
                                  tr("No se pudo almacenar la imagen."));
     }
+}
+
+void Resultados::on_cmdExcel_released()
+{
+    //Crear un objeto QDir a partir del directorio del usuario
+    QDir directorio = QDir::home();
+
+    //Agregar al path absoluto del objeto un nombre por defecto del archivo
+    QString pathArchivo = directorio.absolutePath() + "/Resultados.xlsx";
+
+    //Abrir un cuadro de dialogo para seleccionar el nombre y ubicacion del archivo a guardar
+    QString fileName = QFileDialog::getSaveFileName(this, "Guardar archivo", pathArchivo, "Libro de Excel(*.xlsx)");
+
+    //Crear el archivo a partir del nombre arrojado por el cuadro de dialogo
+    QFile f(fileName);
+
+    //Crear el objeto QTextstream (permite escribir sobre el archivo)
+    QTextStream out(&f);
+
+    //Intentar abrir el archivo ya sea para escribir(si no existe) o para agregar texto(si existe)
+    if(!f.open(QIODevice::WriteOnly | QIODevice::Append))
+    {
+        QMessageBox::warning(this, "Resumen", "No se puede abrir el archivo");
+        return;
+    }
+
+    //Guardar el contenido
+    out << "Arauz" << "Lasso" << "Nulo" << "Blanco" << endl;
+    f.close();
 }

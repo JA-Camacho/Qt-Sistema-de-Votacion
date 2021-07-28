@@ -22,6 +22,8 @@ public:
 private slots:
     void on_cmdImagen_released();
 
+    void on_cmdExcel_released();
+
 private:
     Ui::Resultados *ui;
     QPixmap lienzo;
@@ -31,6 +33,10 @@ private:
     int m_lasso;
     int m_blanco;
     int m_nulo;
+    float porArauz;
+    float porLasso;
+    float porNulo;
+    float porBlanco;
 };
 
 #endif // RESULTADOS_H

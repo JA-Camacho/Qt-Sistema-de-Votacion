@@ -7,7 +7,4 @@
         <file>Recursos/tarjeta-de-identificacion.png</file>
         <file>Recursos/estadisticas.png</file>
     </qresource>
-    <qresource prefix="/usuarios">
-        <file>Recursos/usuarios.csv</file>
-    </qresource>
 </RCC>
