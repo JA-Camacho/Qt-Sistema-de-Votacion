@@ -103,3 +103,8 @@ void Principal::llenarPila(int numero)
         break;
     }
 }
+
+void Principal::on_cmdSalir_released()
+{
+    this->close();
+}

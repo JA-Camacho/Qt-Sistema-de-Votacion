@@ -25,6 +25,8 @@ private slots:
     void on_cmdIngresar_clicked();
     void on_actionResultados_triggered();
     
+    void on_cmdSalir_released();
+
 private:
     Ui::Principal *ui;
     QString m_cedula;
