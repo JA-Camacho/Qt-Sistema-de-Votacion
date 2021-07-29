@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
-    <height>241</height>
+    <width>547</width>
+    <height>341</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -107,6 +107,17 @@
          </item>
          <item>
           <widget class="QPushButton" name="cmdVotar">
+           <property name="font">
+            <font>
+             <family>Script MT Bold</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: qradialgradient(spread:reflect, cx:0, cy:0, radius:1.271, fx:0.897834, fy:0.897834, stop:0 rgba(236, 129, 124, 241), stop:1 rgba(255, 255, 255, 255));</string>
+           </property>
            <property name="text">
             <string>Votar</string>
            </property>

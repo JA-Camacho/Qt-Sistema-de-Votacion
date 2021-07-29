@@ -22,6 +22,7 @@ public:
     void cargarVotos(QStack<int> &arauz, QStack<int> &lasso, QStack<int> &nulo, QStack<int> &blanco);
     void guardarCedulas(QString cedula);
 
+
 signals:
 
 };

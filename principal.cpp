@@ -1,6 +1,6 @@
 #include "principal.h"
 #include "ui_principal.h"
-
+#include <QDebug>
 Principal::Principal(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Principal)
@@ -29,6 +29,7 @@ void Principal::on_cmdIngresar_clicked()
         return;
     else
     {
+
         //Objeto Dinamico votacion y votante
         Votacion *votacion = new Votacion(this);
 
