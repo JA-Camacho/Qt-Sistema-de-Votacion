@@ -26,6 +26,7 @@ void Resultados::dibujar()
 {
     //Rellenar el lienzo de color blanco
     lienzo.fill(Qt::white);
+
     //Crear el pintor
     QPainter picasso(&lienzo);
 

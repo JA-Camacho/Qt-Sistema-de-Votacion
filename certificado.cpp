@@ -1,14 +1,21 @@
 #include "certificado.h"
 #include "ui_certificado.h"
-
+#include <QDebug>
 Certificado::Certificado(QWidget *parent, QString nombre, QString cedula) :
     QDialog(parent),
     ui(new Ui::Certificado)
 {
     ui->setupUi(this);
     this->nombre = cedula;
-    imagen = QImage(QString("%1.jpeg").arg(cedula));
+
     //ejemplo: arg(cedula)=1751222454        .jpeg
+    imagen = QImage(QString("%1.jpeg").arg(cedula));
+
+    if(imagen.isNull())
+        imagen = QImage(QString("%1.jpg").arg(cedula));
+
+    if(imagen.isNull())
+        imagen = QImage(QString("%1.png").arg(cedula));
 
     //Crear el lienzo
     lienzo = QPixmap(523,200);
@@ -29,19 +36,20 @@ void Certificado::dibujar(QString nombre, QString cedula)
     lienzo.fill(Qt::white);
 
     //Crear el pintor
-    QPainter painter(&lienzo);
+    QPainter miguel_angel(&lienzo);
 
     int x = 50;
     int y = 50;
-    painter.drawImage(x,y, imagen.scaled(100,110));
-    painter.setFont(QFont("Arial", 10));
+    miguel_angel.drawImage(x,y, imagen.scaled(100,110));
+    miguel_angel.setFont(QFont("Arial", 10));
 
-    painter.drawText(x+200, y,tr("Certificado de Votación"));
-    painter.drawText(x+225, y+17,tr("Elecciones 2021"));
-    painter.drawText(x+200, y+50,tr("Nombre: ") + nombre);
-    painter.drawText(x+200, y+70,tr("Cedula: ") + cedula);
-    painter.drawText(x+200, y+90,tr("Fecha: ") + fecha.toString("dd-MM-yyyy"));
-    painter.drawText(x+200, y+110,tr("Hora: ") + tiempo.toString("hh:mm"));
+    miguel_angel.drawText(x+200, y,tr("Certificado de Votación"));
+    miguel_angel.drawText(x+225, y+17,tr("Elecciones 2021"));
+    miguel_angel.drawText(x+200, y+50,tr("Nombre: ") + nombre);
+    miguel_angel.drawText(x+200, y+70,tr("Cedula: ") + cedula);
+    miguel_angel.drawText(x+200, y+90,tr("Fecha: ") + fecha.toString("dd-MM-yyyy"));
+    miguel_angel.drawText(x+200, y+110,tr("Hora: ") + tiempo.toString("hh:mm"));
+    miguel_angel.drawRect(0,0,523,200);
     ui->outCertificado->setPixmap(lienzo);
 }
 
