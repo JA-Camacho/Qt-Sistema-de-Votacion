@@ -5,27 +5,29 @@
 #include <QObject>
 #include <QTranslator>
 #include <QInputDialog>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTranslator traducion;
-    // Solicitando al usuario que seleccione un idioma
-    QStringList idiomas;
-    idiomas << "Kichwa" << "Inglés" << "Español";
-    QString idiomaSeleccionado = QInputDialog::getItem(NULL, "Idioma",
-                               "Seleccione un idioma",
-                               idiomas);
-    // Dependiendo del idioma seleccionado, carga el archivo de rtaducción
-    if (idiomaSeleccionado == "Kichwa"){
-        traducion.load(":/Traducciones/Proyecto_02_qu_EC.qm");
-    }else if (idiomaSeleccionado == "Inglés"){
-        traducion.load(":/Traducciones/Proyecto_02_en_US.qm");
+    //Crea un objeto para manejar las traducciones
+    QTranslator traduccion;
+
+    QString lenguajeLocal = QLocale::system().name();
+
+    QStringList lenguaje = lenguajeLocal.split("_");
+
+    //Evaluar el idioma por defecto de la computadora
+    if(lenguaje.at(0) == "qu")
+    {
+        traduccion.load(":/Traducciones/Proyecto_02_qu_EC.qm");
     }
-    // Si es diferente de español, se instala la traducción en TODA la aplicación
-    if (idiomaSeleccionado != "Español"){
-        a.installTranslator(&traducion);
+    else if(lenguaje.at(0) == "en"){
+        traduccion.load(":/Traducciones/Proyecto_02_en_US.qm");
     }
+    else
+        traduccion.load(":/Traducciones/Traducciones/Salario_es_EC.qm");
+
+    //Establecer un idioma a la aplicación
+    a.installTranslator(&traduccion);
 
     QFile fechas("Fecha.csv");
     QTextStream io;

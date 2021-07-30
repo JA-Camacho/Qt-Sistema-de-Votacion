@@ -10,7 +10,6 @@ Administrador::Administrador(QWidget *parent) :
     map.insert("Jose", 123456);
     map.insert("Joel", 9876);
     map.insert("Gilmar",5473);
-
 }
 
 Administrador::~Administrador()
