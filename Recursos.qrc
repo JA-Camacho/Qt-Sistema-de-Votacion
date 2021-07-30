@@ -7,4 +7,9 @@
         <file>Recursos/tarjeta-de-identificacion.png</file>
         <file>Recursos/estadisticas.png</file>
     </qresource>
+    <qresource prefix="/Traducciones">
+        <file>Proyecto_02_en_US.qm</file>
+        <file>Proyecto_02_es_EC.qm</file>
+        <file>Proyecto_02_qu_EC.qm</file>
+    </qresource>
 </RCC>

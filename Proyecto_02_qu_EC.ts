@@ -11,42 +11,42 @@
     <message>
         <location filename="administrador.ui" line="27"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Administrador&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Pushak&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="administrador.ui" line="40"/>
+        <location filename="administrador.ui" line="43"/>
         <source>Usuario</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan</translation>
     </message>
     <message>
-        <location filename="administrador.ui" line="54"/>
+        <location filename="administrador.ui" line="57"/>
         <source>Contraseña</source>
-        <translation type="unfinished"></translation>
+        <translation>Kinchullina</translation>
     </message>
     <message>
-        <location filename="administrador.ui" line="90"/>
+        <location filename="administrador.ui" line="99"/>
         <source>Acceder</source>
-        <translation type="unfinished"></translation>
+        <translation>Yaykuna</translation>
     </message>
     <message>
-        <location filename="administrador.ui" line="100"/>
+        <location filename="administrador.ui" line="109"/>
         <source>Cancelar</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinkachiy</translation>
     </message>
     <message>
         <location filename="administrador.cpp" line="34"/>
         <source>Administrador</source>
-        <translation type="unfinished"></translation>
+        <translation>Pushak</translation>
     </message>
     <message>
         <location filename="administrador.cpp" line="34"/>
         <source>Usuario y/o Contraseña Incorrecta</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan y/o Wakaychina Pantay</translation>
     </message>
     <message>
         <location filename="administrador.cpp" line="34"/>
         <source>Aceptar</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaskina</translation>
     </message>
 </context>
 <context>
@@ -54,52 +54,52 @@
     <message>
         <location filename="certificado.ui" line="29"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Patara</translation>
     </message>
     <message>
         <location filename="certificado.ui" line="48"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="certificado.ui" line="90"/>
         <source>Guardar</source>
-        <translation type="unfinished"></translation>
+        <translation>Wakaychina</translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="39"/>
+        <location filename="certificado.cpp" line="46"/>
         <source>Certificado de Votación</source>
-        <translation type="unfinished"></translation>
+        <translation>Panka Akllana</translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="40"/>
+        <location filename="certificado.cpp" line="47"/>
         <source>Elecciones 2021</source>
-        <translation type="unfinished"></translation>
+        <translation>Akllana 2021</translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="41"/>
+        <location filename="certificado.cpp" line="48"/>
         <source>Nombre: </source>
-        <translation type="unfinished"></translation>
+        <translation>Shuti: </translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="42"/>
+        <location filename="certificado.cpp" line="49"/>
         <source>Cedula: </source>
-        <translation type="unfinished"></translation>
+        <translation>Rikchak: </translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="43"/>
+        <location filename="certificado.cpp" line="50"/>
         <source>Fecha: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ameninades: </translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="44"/>
+        <location filename="certificado.cpp" line="51"/>
         <source>Hora: </source>
-        <translation type="unfinished"></translation>
+        <translation>Muray: </translation>
     </message>
     <message>
-        <location filename="certificado.cpp" line="53"/>
+        <location filename="certificado.cpp" line="61"/>
         <source>/Certificados/</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -107,12 +107,12 @@
     <message>
         <location filename="controlador.cpp" line="118"/>
         <source>Aviso</source>
-        <translation type="unfinished"></translation>
+        <translation>Wllay</translation>
     </message>
     <message>
         <location filename="controlador.cpp" line="118"/>
         <source>Error de Apertura</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantay</translation>
     </message>
 </context>
 <context>
@@ -120,65 +120,65 @@
     <message>
         <location filename="principal.ui" line="26"/>
         <location filename="principal.cpp" line="25"/>
-        <location filename="principal.cpp" line="70"/>
+        <location filename="principal.cpp" line="71"/>
         <source>Principal</source>
-        <translation type="unfinished"></translation>
+        <translation>Llika Akllana</translation>
     </message>
     <message>
         <location filename="principal.ui" line="63"/>
         <location filename="principal.ui" line="108"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="principal.ui" line="69"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Sistema de Votación&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Llika Akllana&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="principal.ui" line="88"/>
         <source>Cedula</source>
-        <translation type="unfinished"></translation>
+        <translation>Rikchak</translation>
     </message>
     <message>
         <location filename="principal.ui" line="148"/>
         <source>Ingresar</source>
-        <translation type="unfinished"></translation>
+        <translation>Yaykuna</translation>
     </message>
     <message>
         <location filename="principal.ui" line="166"/>
-        <source>Cancelar</source>
-        <translation type="unfinished"></translation>
+        <source>Salir</source>
+        <translation>Llukshina</translation>
     </message>
     <message>
         <location filename="principal.ui" line="205"/>
         <source>Administrador</source>
-        <translation type="unfinished"></translation>
+        <translation>Pushak</translation>
     </message>
     <message>
         <location filename="principal.ui" line="218"/>
         <source>Datos</source>
-        <translation type="unfinished"></translation>
+        <translation>Willana</translation>
     </message>
     <message>
         <location filename="principal.cpp" line="25"/>
         <source>No has proporcionado la cedula</source>
-        <translation type="unfinished"></translation>
+        <translation>Ama Charina Rikchak</translation>
     </message>
     <message>
-        <location filename="principal.cpp" line="60"/>
+        <location filename="principal.cpp" line="61"/>
         <source>La cedula que ha ingresado no es Ecuatoriana</source>
-        <translation type="unfinished"></translation>
+        <translation>Rikchak Yaykuna Ama Ecuadorpi</translation>
     </message>
     <message>
-        <location filename="principal.cpp" line="66"/>
+        <location filename="principal.cpp" line="67"/>
         <source>Usted no pertenece a este Padrón Electoral</source>
-        <translation type="unfinished"></translation>
+        <translation>Kikin ama Ayllu</translation>
     </message>
     <message>
-        <location filename="principal.cpp" line="70"/>
+        <location filename="principal.cpp" line="71"/>
         <source>Usted ya ha votado</source>
-        <translation type="unfinished"></translation>
+        <translation>Kikin Akllana</translation>
     </message>
 </context>
 <context>
@@ -186,65 +186,65 @@
     <message>
         <location filename="resultados.ui" line="29"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Patara</translation>
     </message>
     <message>
-        <location filename="resultados.ui" line="41"/>
+        <location filename="resultados.ui" line="55"/>
         <source>Guardar Datos en Excel</source>
-        <translation type="unfinished"></translation>
+        <translation>Wakaychina Willana Excel</translation>
     </message>
     <message>
-        <location filename="resultados.ui" line="54"/>
+        <location filename="resultados.ui" line="79"/>
         <source>Generar Imagen</source>
-        <translation type="unfinished"></translation>
+        <translation>Imashkina Rikchak</translation>
     </message>
     <message>
-        <location filename="resultados.ui" line="67"/>
+        <location filename="resultados.ui" line="100"/>
         <source>Resultados</source>
-        <translation type="unfinished"></translation>
+        <translation>Patara</translation>
     </message>
     <message>
-        <location filename="resultados.ui" line="89"/>
+        <location filename="resultados.ui" line="122"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="63"/>
+        <location filename="resultados.cpp" line="68"/>
         <source>Lista 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fanga kilcashca 1</translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="83"/>
+        <location filename="resultados.cpp" line="88"/>
         <source>Lista 21</source>
-        <translation type="unfinished"></translation>
+        <translation>Fanga kilcashca 21</translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="101"/>
-        <location filename="resultados.cpp" line="143"/>
+        <location filename="resultados.cpp" line="106"/>
+        <location filename="resultados.cpp" line="147"/>
         <source>Nulo</source>
-        <translation type="unfinished"></translation>
+        <translation>Nana ima</translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="114"/>
+        <location filename="resultados.cpp" line="118"/>
         <source>Blanco</source>
-        <translation type="unfinished"></translation>
+        <translation>Yurak</translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="158"/>
-        <location filename="resultados.cpp" line="164"/>
-        <location filename="resultados.cpp" line="168"/>
+        <location filename="resultados.cpp" line="161"/>
+        <location filename="resultados.cpp" line="167"/>
+        <location filename="resultados.cpp" line="171"/>
         <source>Guardar imagen</source>
-        <translation type="unfinished"></translation>
+        <translation>Wakaychina Rikchak</translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="165"/>
+        <location filename="resultados.cpp" line="168"/>
         <source>Archivo almacenado en: </source>
-        <translation type="unfinished"></translation>
+        <translation>Willana Katuwasi: </translation>
     </message>
     <message>
-        <location filename="resultados.cpp" line="169"/>
+        <location filename="resultados.cpp" line="172"/>
         <source>No se pudo almacenar la imagen.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ama Willana Katuwasi.</translation>
     </message>
 </context>
 <context>
@@ -252,37 +252,37 @@
     <message>
         <location filename="votacion.ui" line="29"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Patara</translation>
     </message>
     <message>
         <location filename="votacion.ui" line="35"/>
         <source>Candidatos</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamachikuska</translation>
     </message>
     <message>
         <location filename="votacion.ui" line="51"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Lista 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Fanga kilcashca 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="votacion.ui" line="58"/>
         <source>Arauz</source>
-        <translation type="unfinished"></translation>
+        <translation>Arauz</translation>
     </message>
     <message>
         <location filename="votacion.ui" line="78"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Lista 21&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Fanga kilcashca 21&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="votacion.ui" line="85"/>
         <source>Lasso</source>
-        <translation type="unfinished"></translation>
+        <translation>Lasso</translation>
     </message>
     <message>
-        <location filename="votacion.ui" line="111"/>
+        <location filename="votacion.ui" line="122"/>
         <source>Votar</source>
-        <translation type="unfinished"></translation>
+        <translation>Akllana</translation>
     </message>
 </context>
 </TS>

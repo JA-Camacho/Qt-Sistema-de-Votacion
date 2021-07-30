@@ -3,10 +3,30 @@
 #include <QDate>
 #include <QMessageBox>
 #include <QObject>
+#include <QTranslator>
+#include <QInputDialog>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QTranslator traducion;
+    // Solicitando al usuario que seleccione un idioma
+    QStringList idiomas;
+    idiomas << "Kichwa" << "Inglés" << "Español";
+    QString idiomaSeleccionado = QInputDialog::getItem(NULL, "Idioma",
+                               "Seleccione un idioma",
+                               idiomas);
+    // Dependiendo del idioma seleccionado, carga el archivo de rtaducción
+    if (idiomaSeleccionado == "Kichwa"){
+        traducion.load(":/Traducciones/Proyecto_02_qu_EC.qm");
+    }else if (idiomaSeleccionado == "Inglés"){
+        traducion.load(":/Traducciones/Proyecto_02_en_US.qm");
+    }
+    // Si es diferente de español, se instala la traducción en TODA la aplicación
+    if (idiomaSeleccionado != "Español"){
+        a.installTranslator(&traducion);
+    }
+
     QFile fechas("Fecha.csv");
     QTextStream io;
     io.setDevice(&fechas);

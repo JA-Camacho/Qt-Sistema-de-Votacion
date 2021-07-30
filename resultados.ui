@@ -28,6 +28,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QPushButton" name="cmdExcel">
    <property name="geometry">
     <rect>

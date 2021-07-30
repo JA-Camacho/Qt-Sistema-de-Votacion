@@ -52,6 +52,7 @@ void Resultados::dibujar()
     QPen pincel;
     pincel.setWidth(5);
     pincel.setColor(Qt::red);
+    QColor colorRelleno1(255, 120, 108);
     pincel.setJoinStyle(Qt::MiterJoin);
 
     //Establecer el pincel al pintor
