@@ -7,6 +7,9 @@
 #include <QInputDialog>
 int main(int argc, char *argv[])
 {
+    Controlador control;
+    //Invocamos a la funcion que compruebe si existen los archivos necesarios para la ejecucion
+    control.crearArchivos();
     QApplication a(argc, argv);
     //Crea un objeto para manejar las traducciones
     QTranslator traduccion;

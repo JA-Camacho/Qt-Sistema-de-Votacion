@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QTextStream>
+#include <QDate>
 
 class Controlador : public QObject
 {
@@ -21,8 +22,7 @@ public:
     void guardarVotos(int arauz, int lasso, int nulo, int blanco);
     void cargarVotos(QStack<int> &arauz, QStack<int> &lasso, QStack<int> &nulo, QStack<int> &blanco);
     void guardarCedulas(QString cedula);
-
-
+    void crearArchivos();
 signals:
 
 };

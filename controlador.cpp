@@ -67,7 +67,7 @@ bool Controlador::validarCedulaEC(QString cedula)
 
 QString Controlador::enviarNombre(QString cedula)
 {
-    QFile usuario("usuarios.csv");
+    QFile usuario("Padron Electoral.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
     io.setDevice(&usuario);
@@ -79,7 +79,7 @@ QString Controlador::enviarNombre(QString cedula)
         {
             if(valores.at(0) == cedula)
             {
-                return valores.at(1); //Retornamos el nombre de la cedula registrada en el padron electoral
+                return valores.at(1); //Retornamos el nombre de la cedula registrada en el Padron Electoral.csv
             }
             else
                 break;
@@ -151,13 +151,63 @@ void Controlador::guardarCedulas(QString cedula)
     QTextStream io;
     usuario.open(QIODevice::WriteOnly | QIODevice::Append);
     io.setDevice(&usuario);
-
     io << cedula << endl;
+    usuario.close();
+}
+
+void Controlador::crearArchivos()
+{
+    //Se verifica si se tiene los archivos necesarios para que funcione el programa
+    QTextStream io;
+    //Comprueba si no existe la carpeta certificados para crearla
+    if(!QDir("Certificados").exists())
+        QDir().mkdir("Certificados");
+
+    //Comprueba si no existe los archivos para crearlos
+    if(!QFile("Fecha.csv").exists())
+    {
+        QFile fecha("Fecha.csv");
+        fecha.open(QIODevice::ReadWrite | QIODevice::Text);
+        io.setDevice(&fecha);
+        io << "Fecha;Hora Inicio;Hora Final" << endl;
+        io << QDate::currentDate().toString("dd/MM/yyyy") << ";7:00;23:00";
+        fecha.close();
+    }
+
+    if(!QFile("Votos.csv").exists())
+    {
+        QFile votos("Votos.csv");
+        io.setDevice(&votos);
+        votos.open(QIODevice::ReadWrite | QIODevice::Text);
+
+        io << "Arauz;0" << endl;
+        io << "Lasso;0" << endl;
+        io << "Nulo;0" << endl;
+        io << "Blanco;0" << endl;
+        votos.close();
+    }
+
+    if(!QFile("Padron Electoral.csv").exists())
+    {
+        QFile Padron("Padron Electoral.csv");
+        io.setDevice(&Padron);
+        Padron.open(QIODevice::ReadWrite | QIODevice::Text);
+        io << "Cedula;Nombre";
+        Padron.close();
+    }
+
+    if(!QFile("Lista de Personas que ya votaron.csv").exists())
+    {
+        QFile Lista("Lista de Personas que ya votaron.csv");
+        Lista.open(QIODevice::ReadWrite | QIODevice::Text);
+        Lista.close();
+    }
+
 }
 
 bool Controlador::padron(QString cedula)
 {
-    QFile usuario("usuarios.csv");
+    QFile usuario("Padron Electoral.csv");
     QTextStream io;
     usuario.open(QIODevice::ReadOnly | QIODevice::Text);
     io.setDevice(&usuario);
@@ -171,11 +221,11 @@ bool Controlador::padron(QString cedula)
         {
             if(valores.at(0) == cedula)
             {
-                return true; //Si pertenece al padron electoral
+                return true; //Si pertenece al Padron Electoral.csv
             }
             else
                 break;
         }
     }
-    return false; //No pertenece al padron electoral
+    return false; //No pertenece al Padron Electoral.csv
 }
